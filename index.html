@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সৌর কথন — ইচ্ছে ছিল আকাশ ছোঁয়ার</title>
+    <meta name="description" content="ইচ্ছে ছিল আকাশ ছোঁয়ার, কিন্ত তা তো হয় নি। তাই বলে কি রইব থেমে, স্বপ্ন যে দেয় হাতছানি">
+    <meta property="og:title" content="সৌর কথন">
+    <meta property="og:description" content="ইচ্ছে ছিল আকাশ ছোঁয়ার, কিন্ত তা তো হয় নি। তাই বলে কি রইব থেমে, স্বপ্ন যে দেয় হাতছানি">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Tiro+Bangla:ital@0;1&family=Noto+Serif+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Particle background -->
+<div class="particles" id="particles"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="nav-brand" onclick="showPage('home')">
+            <span class="brand-title">সৌর কথন</span>
+            <span class="brand-tagline">voruoso!</span>
+        </div>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="#" class="nav-link active" id="nav-home" onclick="showPage('home')">Home</a></li>
+            <li><a href="#" class="nav-link" id="nav-khoshgalpo" onclick="showPage('khoshgalpo')">খোশগল্প</a></li>
+            <li><a href="#" class="nav-link" id="nav-kobita" onclick="showPage('kobita')">কবি কবি ভাব!</a></li>
+            <li><a href="#" class="nav-link" id="nav-travel" onclick="showPage('travel')">ঘুরে বেড়াই</a></li>
+            <li><a href="#" class="nav-link" id="nav-photos" onclick="showPage('photos')">ছবিও কথা বলে!</a></li>
+            <li><a href="#" class="nav-link" id="nav-portfolio" onclick="showPage('portfolio')">পোর্টফোলিও</a></li>
+            <li><a href="#" class="nav-link" id="nav-about" onclick="showPage('about')">আগন্তুকের সাথে আলাপ!</a></li>
+            <li><a href="#" class="nav-link" id="nav-selected" onclick="showPage('selected')">নির্বাচিত</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero" id="page-home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <p class="hero-sub animate-in">~ একটি ব্যক্তিগত ব্লগ ~</p>
+        <h1 class="hero-title animate-in delay-1">সৌর কথন</h1>
+        <p class="hero-desc animate-in delay-2">ইচ্ছে ছিল আকাশ ছোঁয়ার, কিন্ত তা তো হয় নি।<br>তাই বলে কি রইব থেমে, স্বপ্ন যে দেয় হাতছানি</p>
+        <button class="hero-btn animate-in delay-3" onclick="scrollToPosts()">লেখাগুলো পড়ি ↓</button>
+    </div>
+    <div class="hero-scroll-indicator">
+        <div class="scroll-arrow"></div>
+    </div>
+</header>
+
+<!-- MAIN CONTENT AREA -->
+<main class="main-content">
+
+    <!-- HOME PAGE POSTS -->
+    <section class="page-section active" id="section-home">
+        <div class="section-header">
+            <h2 class="section-title">সাম্প্রতিক লেখা</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="posts-grid" id="posts-container">
+            <!-- Posts loaded by JS -->
+        </div>
+    </section>
+
+    <!-- KHOSHGALPO -->
+    <section class="page-section" id="section-khoshgalpo">
+        <div class="section-header">
+            <h2 class="section-title">খোশগল্প</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">জীবনের ছোট ছোট গল্প, মনের কথা, দিনলিপি</p>
+        </div>
+        <div class="posts-grid" id="khoshgalpo-container"></div>
+    </section>
+
+    <!-- KOBITA -->
+    <section class="page-section" id="section-kobita">
+        <div class="section-header">
+            <h2 class="section-title">কবি কবি ভাব!</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">মনের কোণে জমে থাকা ছন্দ ও কবিতা</p>
+        </div>
+        <div class="posts-grid" id="kobita-container"></div>
+    </section>
+
+    <!-- TRAVEL -->
+    <section class="page-section" id="section-travel">
+        <div class="section-header">
+            <h2 class="section-title">ঘুরে বেড়াই যেথায় সেথায়</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">ভ্রমণের গল্প, নতুন জায়গার খোঁজে</p>
+        </div>
+        <div class="posts-grid" id="travel-container"></div>
+    </section>
+
+    <!-- PHOTOS -->
+    <section class="page-section" id="section-photos">
+        <div class="section-header">
+            <h2 class="section-title">ছবিও কথা বলে!</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">আলো ও ছায়ার খেলা — ফটোগ্রাফি</p>
+        </div>
+        <div class="photo-gallery" id="photos-container"></div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section class="page-section" id="section-portfolio">
+        <div class="section-header">
+            <h2 class="section-title">পোর্টফোলিও</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">আমার কাজ ও অর্জন</p>
+        </div>
+        <div class="portfolio-grid" id="portfolio-container"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="page-section" id="section-about">
+        <div class="section-header">
+            <h2 class="section-title">আগন্তুকের সাথে আলাপ!</h2>
+            <div class="title-line"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-card">
+                <div class="about-avatar">
+                    <div class="avatar-ring">
+                        <div class="avatar-inner">সৌ</div>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>voruoso! এর কথা</h3>
+                    <p>স্বাগতম! আমি সৌরভ সাহা। একজন স্বপ্নদ্রষ্টা, লেখক এবং ঘুরে বেড়ানোর প্রেমিক। এই ব্লগে আমি আমার জীবনের ছোট-বড় গল্প, অনুভূতি, কবিতা এবং ভ্রমণের অভিজ্ঞতা শেয়ার করি।</p>
+                    <p>আকাশ ছোঁয়ার ইচ্ছে ছিল, হয়তো পুরোটা হয়নি — তবু কলম থামেনি। স্বপ্ন এখনও হাতছানি দেয়।</p>
+                    <p>ঢাকা, বাংলাদেশ থেকে লিখছি।</p>
+                    <div class="social-links">
+                        <a href="https://sourokothon.wordpress.com" target="_blank" class="social-btn wordpress">WordPress</a>
+                        <a href="#" class="social-btn email">যোগাযোগ করুন</a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>একটু কথা বলি?</h3>
+                <form class="contact-form" id="contact-form" onsubmit="submitForm(event)">
+                    <div class="form-group">
+                        <label for="contact-name">আপনার নাম</label>
+                        <input type="text" id="contact-name" placeholder="আপনার নাম লিখুন..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-email">ইমেইল</label>
+                        <input type="email" id="contact-email" placeholder="আপনার ইমেইল..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">বার্তা</label>
+                        <textarea id="contact-message" rows="5" placeholder="আপনার মনের কথা লিখুন..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">পাঠিয়ে দিন ✉</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- SELECTED -->
+    <section class="page-section" id="section-selected">
+        <div class="section-header">
+            <h2 class="section-title">নির্বাচিত</h2>
+            <div class="title-line"></div>
+            <p class="section-desc">সেরা লেখাগুলো — বাছাই করা</p>
+        </div>
+        <div class="posts-grid" id="selected-container"></div>
+    </section>
+
+</main>
+
+<!-- POST MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal" id="post-modal" onclick="event.stopPropagation()">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <div class="modal-content" id="modal-content"></div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h3>সৌর কথন</h3>
+            <p>ইচ্ছে ছিল আকাশ ছোঁয়ার…</p>
+        </div>
+        <div class="footer-links">
+            <h4>পাতাগুলো</h4>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('khoshgalpo')">খোশগল্প</a></li>
+                <li><a href="#" onclick="showPage('kobita')">কবি কবি ভাব!</a></li>
+                <li><a href="#" onclick="showPage('travel')">ঘুরে বেড়াই</a></li>
+                <li><a href="#" onclick="showPage('photos')">ছবিও কথা বলে!</a></li>
+            </ul>
+        </div>
+        <div class="footer-links">
+            <h4>আরও</h4>
+            <ul>
+                <li><a href="#" onclick="showPage('portfolio')">পোর্টফোলিও</a></li>
+                <li><a href="#" onclick="showPage('about')">আগন্তুকের সাথে আলাপ!</a></li>
+                <li><a href="#" onclick="showPage('selected')">নির্বাচিত</a></li>
+                <li><a href="https://sourokothon.wordpress.com" target="_blank">Original Blog ↗</a></li>
+            </ul>
+        </div>
+        <div class="footer-quote">
+            <blockquote>
+                "স্বপ্ন যে দেয় হাতছানি…"
+            </blockquote>
+            <p>— voruoso!</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2026 সৌর কথন · voruoso! · Made with ❤ in Bangladesh</p>
+    </div>
+</footer>
+
+<script src="blog-data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
