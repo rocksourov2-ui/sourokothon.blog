@@ -293,12 +293,7 @@ function submitForm(e) {
     btn.textContent = 'পাঠানো হচ্ছে...';
     btn.disabled = true;
 
-    setTimeout(() => {
-        showToast('✅ বার্তাটি পাঠানো হয়েছে! ধন্যবাদ।');
-        e.target.reset();
-        btn.textContent = 'পাঠিয়ে দিন ✉';
-        btn.disabled = false;
-    }, 1500);
+
 }
 
 // ========================
